@@ -1,13 +1,284 @@
-<ActionBar class="action-bar">
-  <NavigationButton visibility="hidden"></NavigationButton>
-  <GridLayout columns="50, *">
-    <Label class="action-bar-title" text="Settings" colSpan="2"></Label>
 
-    <Label class="fas" text="&#xf0c9;" (tap)="onDrawerButtonTap()"></Label>
+<ActionBar class="action-bar">
+
+  <NavigationButton visibility="hidden">
+  </NavigationButton>
+
+  <GridLayout columns="50, *">
+
+    <Label
+      class="action-bar-title"
+      text="Configuración"
+      colSpan="2">
+    </Label>
+
+    <Label
+      class="fas"
+      text="&#xf0c9;"
+      color="#FFFFFF"
+      (tap)="onDrawerButtonTap()">
+    </Label>
+
   </GridLayout>
+
 </ActionBar>
 
-<GridLayout class="page__content">
-  <Label class="page__content-icon fas" text="&#xf013;"></Label>
-  <Label class="page__content-placeholder" text="<!-- Page content goes here -->"></Label>
-</GridLayout>
+<ScrollView class="settings-background">
+
+  <StackLayout class="settings-container">
+
+    <!-- Identidad de la aplicación -->
+
+    <StackLayout class="profile-card">
+
+      <GridLayout class="app-logo-container">
+
+        <Label
+          class="fas app-logo"
+          text="&#xf466;">
+        </Label>
+
+      </GridLayout>
+
+      <Label
+        class="app-name"
+        [text]="nombreAplicacion">
+      </Label>
+
+      <Label
+        class="app-description"
+        text="Sistema de gestión de inventario"
+        textWrap="true">
+      </Label>
+
+      <Label
+        class="version-label"
+        [text]="'Versión ' + version">
+      </Label>
+
+    </StackLayout>
+
+    <!-- Información técnica -->
+
+    <Label
+      class="section-title"
+      text="Información de la aplicación">
+    </Label>
+
+    <StackLayout class="information-card">
+
+      <!-- Plataforma -->
+
+      <GridLayout
+        columns="45, *"
+        class="information-row">
+
+        <Label
+          col="0"
+          class="fas information-icon"
+          text="&#xf3cd;">
+        </Label>
+
+        <StackLayout col="1">
+
+          <Label
+            class="information-label"
+            text="Plataforma">
+          </Label>
+
+          <Label
+            class="information-value"
+            [text]="plataforma">
+          </Label>
+
+        </StackLayout>
+
+      </GridLayout>
+
+      <StackLayout class="settings-divider">
+      </StackLayout>
+
+      <!-- Framework -->
+
+      <GridLayout
+        columns="45, *"
+        class="information-row">
+
+        <Label
+          col="0"
+          class="fas information-icon"
+          text="&#xf121;">
+        </Label>
+
+        <StackLayout col="1">
+
+          <Label
+            class="information-label"
+            text="Framework">
+          </Label>
+
+          <Label
+            class="information-value"
+            [text]="framework"
+            textWrap="true">
+          </Label>
+
+        </StackLayout>
+
+      </GridLayout>
+
+      <StackLayout class="settings-divider">
+      </StackLayout>
+
+      <!-- Lenguaje -->
+
+      <GridLayout
+        columns="45, *"
+        class="information-row">
+
+        <Label
+          col="0"
+          class="fas information-icon"
+          text="&#xf1c9;">
+        </Label>
+
+        <StackLayout col="1">
+
+          <Label
+            class="information-label"
+            text="Lenguaje">
+          </Label>
+
+          <Label
+            class="information-value"
+            [text]="lenguaje">
+          </Label>
+
+        </StackLayout>
+
+      </GridLayout>
+
+      <StackLayout class="settings-divider">
+      </StackLayout>
+
+      <!-- Almacenamiento -->
+
+      <GridLayout
+        columns="45, *"
+        class="information-row">
+
+        <Label
+          col="0"
+          class="fas information-icon"
+          text="&#xf1c0;">
+        </Label>
+
+        <StackLayout col="1">
+
+          <Label
+            class="information-label"
+            text="Almacenamiento">
+          </Label>
+
+          <Label
+            class="information-value"
+            [text]="almacenamiento">
+          </Label>
+
+        </StackLayout>
+
+      </GridLayout>
+
+      <StackLayout class="settings-divider">
+      </StackLayout>
+
+      <!-- Proyecto académico -->
+
+      <GridLayout
+        columns="45, *"
+        class="information-row">
+
+        <Label
+          col="0"
+          class="fas information-icon"
+          text="&#xf19d;">
+        </Label>
+
+        <StackLayout col="1">
+
+          <Label
+            class="information-label"
+            text="Proyecto académico">
+          </Label>
+
+          <Label
+            class="information-value"
+            [text]="proyecto">
+          </Label>
+
+        </StackLayout>
+
+      </GridLayout>
+
+    </StackLayout>
+
+    <!-- Descripción del proyecto -->
+
+    <Label
+      class="section-title"
+      text="Acerca de">
+    </Label>
+
+    <StackLayout class="about-card">
+
+      <Label
+        class="about-description"
+        text="Aplicación móvil diseñada para consultar, buscar, clasificar y destacar productos de un inventario."
+        textWrap="true">
+      </Label>
+
+      <Label
+        class="about-note"
+        text="Los datos se almacenan temporalmente en memoria durante la ejecución de la aplicación."
+        textWrap="true">
+      </Label>
+
+    </StackLayout>
+
+    <!-- Botón informativo -->
+
+    <GridLayout
+      columns="30, *"
+      class="about-button"
+      (tap)="mostrarAcercaDe()">
+
+      <Label
+        col="0"
+        class="fas about-button-icon"
+        text="&#xf05a;">
+      </Label>
+
+      <Label
+        col="1"
+        class="about-button-text"
+        text="Acerca de InventarioApp">
+      </Label>
+
+    </GridLayout>
+
+    <!-- Pie de página -->
+
+    <Label
+      class="settings-footer"
+      text="Desarrollado con NativeScript y Angular"
+      textWrap="true">
+    </Label>
+
+    <Label
+      class="settings-footer-year"
+      text="2026">
+    </Label>
+
+  </StackLayout>
+
+</ScrollView>

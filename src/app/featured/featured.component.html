@@ -1,13 +1,149 @@
-<ActionBar class="action-bar">
-  <NavigationButton visibility="hidden"></NavigationButton>
-  <GridLayout columns="50, *">
-    <Label class="action-bar-title" text="Featured" colSpan="2"></Label>
 
-    <Label class="fas" text="&#xf0c9;" (tap)="onDrawerButtonTap()"></Label>
+<ActionBar class="action-bar">
+
+  <NavigationButton visibility="hidden">
+  </NavigationButton>
+
+  <GridLayout columns="50, *">
+
+    <Label
+      class="action-bar-title"
+      text="Productos destacados"
+      colSpan="2">
+    </Label>
+
+    <Label
+      class="fas toolbar-icon"
+      text="&#xf0c9;"
+      (tap)="onDrawerButtonTap()">
+    </Label>
+
   </GridLayout>
+
 </ActionBar>
 
-<GridLayout class="page__content">
-  <Label class="page__content-icon fas" text="&#xf005;"></Label>
-  <Label class="page__content-placeholder" text="<!-- Page content goes here -->"></Label>
+<GridLayout
+  rows="auto, auto, *"
+  class="inventory-page">
+
+  <!-- Instrucciones -->
+
+  <GridLayout
+    row="0"
+    columns="25, *"
+    class="inventory-instructions">
+
+    <Label
+      col="0"
+      class="fas instruction-icon"
+      text="&#xf05a;">
+    </Label>
+
+    <Label
+      col="1"
+      class="instruction-text"
+      text="Mantén presionada la estrella para destacar un producto."
+      textWrap="true">
+    </Label>
+
+  </GridLayout>
+
+  <!-- Contador de productos destacados -->
+
+  <GridLayout
+    row="1"
+    columns="40, *"
+    class="featured-counter">
+
+    <Label
+      col="0"
+      class="fas featured-counter-icon"
+      text="&#xf005;">
+    </Label>
+
+    <Label
+      col="1"
+      class="featured-counter-text"
+      [text]="cantidadDestacados === 1
+        ? '1 producto destacado'
+        : cantidadDestacados + ' productos destacados'">
+    </Label>
+
+  </GridLayout>
+
+  <!-- Listado de productos -->
+
+  <ListView
+    row="2"
+    #listaDestacados
+    class="inventory-list"
+    separatorColor="transparent"
+    [items]="productos"
+    (itemTap)="onItemTap($event)">
+
+    <ng-template let-producto="item">
+
+      <FlexboxLayout
+        class="product-card"
+        flexDirection="row"
+        alignItems="center">
+
+        <!-- Icono del producto -->
+
+        <GridLayout
+          class="product-icon-container"
+          flexShrink="0">
+
+          <Label
+            class="fas product-icon"
+            text="&#xf466;">
+          </Label>
+
+        </GridLayout>
+
+        <!-- Información del producto -->
+
+        <StackLayout flexGrow="1" flexShrink="1">
+
+          <Label
+            class="product-name"
+            [text]="producto.nombre"
+            textWrap="true">
+          </Label>
+
+          <Label
+            class="product-category"
+            [text]="producto.categoria">
+          </Label>
+
+          <Label
+            class="product-stock"
+            [text]="'Stock: ' + producto.stock">
+          </Label>
+
+          <Label
+            class="product-price"
+            [text]="'L ' + producto.precio.toFixed(2)">
+          </Label>
+
+        </StackLayout>
+
+        <!-- Estrella con gesto y animación -->
+
+        <Label
+          class="fas featured-star"
+          text="&#xf005;"
+          [color]="producto.destacado
+            ? '#F59E0B'
+            : '#94A3B8'"
+          flexShrink="0"
+          (longPress)="onLongPress($event, producto)">
+        </Label>
+
+      </FlexboxLayout>
+
+    </ng-template>
+
+  </ListView>
+
 </GridLayout>

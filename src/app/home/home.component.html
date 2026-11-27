@@ -1,13 +1,279 @@
-<ActionBar class="action-bar">
-  <NavigationButton visibility="hidden"></NavigationButton>
-  <GridLayout columns="50, *">
-    <Label class="action-bar-title" text="Home" colSpan="2"></Label>
 
-    <Label class="fas" text="&#xf0c9;" (tap)="onDrawerButtonTap()"></Label>
+<ActionBar class="action-bar">
+
+  <NavigationButton visibility="hidden">
+  </NavigationButton>
+
+  <GridLayout columns="50, *">
+
+    <Label
+      class="action-bar-title"
+      text="InventarioApp"
+      colSpan="2">
+    </Label>
+
+    <Label
+      class="fas"
+      text="&#xf0c9;"
+      color="#FFFFFF"
+      (tap)="onDrawerButtonTap()">
+    </Label>
+
   </GridLayout>
+
 </ActionBar>
 
-<GridLayout class="page__content">
-  <Label class="page__content-icon fas" text="&#xf015;"></Label>
-  <Label class="page__content-placeholder" text="<!-- Page content goes here -->"></Label>
-</GridLayout>
+<ScrollView
+  class="home-background"
+  (loaded)="cargarEstadisticas()">
+
+  <StackLayout class="home-container">
+
+    <!-- Encabezado -->
+
+    <Label
+      class="home-title"
+      text="Panel de inventario">
+    </Label>
+
+    <Label
+      class="home-subtitle"
+      text="Bienvenido a tu sistema de gestión de productos."
+      textWrap="true">
+    </Label>
+
+    <!-- Tarjetas de estadísticas -->
+
+    <GridLayout
+      rows="auto, auto"
+      columns="*, *"
+      class="statistics-grid">
+
+      <!-- Productos -->
+
+      <StackLayout
+        row="0"
+        col="0"
+        class="stat-card">
+
+        <Label
+          class="fas stat-icon icon-products"
+          text="&#xf466;">
+        </Label>
+
+        <Label
+          class="stat-value"
+          [text]="cantidadProductos">
+        </Label>
+
+        <Label
+          class="stat-label"
+          text="Productos"
+          textWrap="true">
+        </Label>
+
+      </StackLayout>
+
+      <!-- Existencias -->
+
+      <StackLayout
+        row="0"
+        col="1"
+        class="stat-card">
+
+        <Label
+          class="fas stat-icon icon-stock"
+          text="&#xf468;">
+        </Label>
+
+        <Label
+          class="stat-value"
+          [text]="totalStock">
+        </Label>
+
+        <Label
+          class="stat-label"
+          text="Unidades en stock"
+          textWrap="true">
+        </Label>
+
+      </StackLayout>
+
+      <!-- Categorías -->
+
+      <StackLayout
+        row="1"
+        col="0"
+        class="stat-card">
+
+        <Label
+          class="fas stat-icon icon-categories"
+          text="&#xf02c;">
+        </Label>
+
+        <Label
+          class="stat-value"
+          [text]="cantidadCategorias">
+        </Label>
+
+        <Label
+          class="stat-label"
+          text="Categorías"
+          textWrap="true">
+        </Label>
+
+      </StackLayout>
+
+      <!-- Destacados -->
+
+      <StackLayout
+        row="1"
+        col="1"
+        class="stat-card">
+
+        <Label
+          class="fas stat-icon icon-featured"
+          text="&#xf005;">
+        </Label>
+
+        <Label
+          class="stat-value"
+          [text]="cantidadDestacados">
+        </Label>
+
+        <Label
+          class="stat-label"
+          text="Destacados"
+          textWrap="true">
+        </Label>
+
+      </StackLayout>
+
+    </GridLayout>
+
+    <!-- Valor económico del inventario -->
+
+    <StackLayout class="inventory-value-card">
+
+      <Label
+        class="fas inventory-value-icon"
+        text="&#xf155;">
+      </Label>
+
+      <Label
+        class="inventory-value-label"
+        text="Valor total del inventario">
+      </Label>
+
+      <Label
+        class="inventory-value-amount"
+        [text]="valorInventarioFormateado"
+        textWrap="true">
+      </Label>
+
+      <Label
+        class="inventory-value-description"
+        text="Precio × unidades disponibles"
+        textWrap="true">
+      </Label>
+
+    </StackLayout>
+
+    <!-- Accesos rápidos -->
+
+    <Label
+      class="section-title"
+      text="Accesos rápidos">
+    </Label>
+
+    <!-- Ver productos -->
+
+    <GridLayout
+      columns="40, *, 20"
+      class="quick-access"
+      (tap)="navegar('/browse')">
+
+      <Label
+        col="0"
+        class="fas quick-icon"
+        text="&#xf466;">
+      </Label>
+
+      <Label
+        col="1"
+        class="quick-label"
+        text="Ver productos">
+      </Label>
+
+      <Label
+        col="2"
+        class="fas quick-arrow"
+        text="&#xf054;">
+      </Label>
+
+    </GridLayout>
+
+    <!-- Buscar productos -->
+
+    <GridLayout
+      columns="40, *, 20"
+      class="quick-access"
+      (tap)="navegar('/search')">
+
+      <Label
+        col="0"
+        class="fas quick-icon"
+        text="&#xf002;">
+      </Label>
+
+      <Label
+        col="1"
+        class="quick-label"
+        text="Buscar productos">
+      </Label>
+
+      <Label
+        col="2"
+        class="fas quick-arrow"
+        text="&#xf054;">
+      </Label>
+
+    </GridLayout>
+
+    <!-- Productos destacados -->
+
+    <GridLayout
+      columns="40, *, 20"
+      class="quick-access"
+      (tap)="navegar('/featured')">
+
+      <Label
+        col="0"
+        class="fas quick-icon"
+        text="&#xf005;">
+      </Label>
+
+      <Label
+        col="1"
+        class="quick-label"
+        text="Productos destacados">
+      </Label>
+
+      <Label
+        col="2"
+        class="fas quick-arrow"
+        text="&#xf054;">
+      </Label>
+
+    </GridLayout>
+
+    <!-- Pie de página -->
+
+    <Label
+      class="home-footer"
+      text="InventarioApp · Versión 1.0.0">
+    </Label>
+
+  </StackLayout>
+
+</ScrollView>

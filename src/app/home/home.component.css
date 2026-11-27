@@ -1,0 +1,190 @@
+
+/* Barra superior */
+
+.action-bar {
+    background-color: #183C65;
+    color: #FFFFFF;
+}
+
+.action-bar-title {
+    color: #FFFFFF;
+    font-size: 20;
+    font-weight: bold;
+}
+
+/* Fondo general */
+
+.home-background {
+    background-color: #F1F5F9;
+}
+
+.home-container {
+    padding: 16;
+}
+
+/* Encabezado */
+
+.home-title {
+    font-size: 26;
+    font-weight: bold;
+    color: #183C65;
+    margin-top: 5;
+    margin-bottom: 5;
+}
+
+.home-subtitle {
+    font-size: 14;
+    color: #64748B;
+    margin-bottom: 18;
+}
+
+/* Cuadrícula de estadísticas */
+
+.statistics-grid {
+    margin: -5;
+    margin-bottom: 12;
+}
+
+/* Tarjetas */
+
+.stat-card {
+    background-color: #FFFFFF;
+    border-radius: 12;
+    padding: 15;
+    margin: 5;
+    border-width: 1;
+    border-color: #E2E8F0;
+    min-height: 125;
+}
+
+/* Iconos de estadísticas */
+
+.stat-icon {
+    width: 44;
+    height: 44;
+    font-size: 22;
+    border-radius: 10;
+    text-align: center;
+    vertical-align: middle;
+    horizontal-align: left;
+    margin-bottom: 10;
+}
+
+.icon-products {
+    background-color: #DBEAFE;
+    color: #2563EB;
+}
+
+.icon-stock {
+    background-color: #DCFCE7;
+    color: #15803D;
+}
+
+.icon-categories {
+    background-color: #EDE9FE;
+    color: #7C3AED;
+}
+
+.icon-featured {
+    background-color: #FEF3C7;
+    color: #D97706;
+}
+
+/* Valores de estadísticas */
+
+.stat-value {
+    font-size: 28;
+    font-weight: bold;
+    color: #183C65;
+}
+
+.stat-label {
+    font-size: 13;
+    color: #64748B;
+    margin-top: 3;
+}
+
+/* Valor total del inventario */
+
+.inventory-value-card {
+    background-color: #183C65;
+    border-radius: 12;
+    padding: 20;
+    margin-top: 8;
+    margin-bottom: 20;
+}
+
+.inventory-value-icon {
+    font-size: 25;
+    color: #FFFFFF;
+    margin-bottom: 10;
+}
+
+.inventory-value-label {
+    font-size: 14;
+    color: #CBD5E1;
+    margin-bottom: 5;
+}
+
+.inventory-value-amount {
+    font-size: 30;
+    font-weight: bold;
+    color: #FFFFFF;
+    margin-bottom: 5;
+}
+
+.inventory-value-description {
+    font-size: 12;
+    color: #CBD5E1;
+}
+
+/* Títulos de sección */
+
+.section-title {
+    font-size: 19;
+    font-weight: bold;
+    color: #183C65;
+    margin-bottom: 12;
+}
+
+/* Accesos rápidos */
+
+.quick-access {
+    background-color: #FFFFFF;
+    border-radius: 10;
+    border-width: 1;
+    border-color: #E2E8F0;
+    padding: 15;
+    margin-bottom: 10;
+    min-height: 60;
+}
+
+.quick-icon {
+    font-size: 22;
+    color: #183C65;
+    vertical-align: middle;
+}
+
+.quick-label {
+    font-size: 15;
+    font-weight: bold;
+    color: #183C65;
+    vertical-align: middle;
+}
+
+.quick-arrow {
+    font-size: 14;
+    color: #94A3B8;
+    vertical-align: middle;
+    horizontal-align: right;
+}
+
+/* Pie de página */
+
+.home-footer {
+    font-size: 12;
+    color: #64748B;
+    text-align: center;
+    margin-top: 15;
+    margin-bottom: 10;
+}

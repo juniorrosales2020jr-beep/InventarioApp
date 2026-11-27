@@ -1,0 +1,165 @@
+
+<ActionBar
+  class="action-bar"
+  title="Detalle del producto">
+
+  <NavigationButton
+    text="Volver"
+    android.systemIcon="ic_menu_back"
+    (tap)="volver()">
+  </NavigationButton>
+
+</ActionBar>
+
+<ScrollView class="detail-background">
+
+  <StackLayout class="detail-container">
+
+    <StackLayout
+      *ngIf="producto as p"
+      class="detail-card">
+
+      <!-- Icono del producto -->
+
+      <GridLayout class="detail-icon-container">
+
+        <Label
+          class="fas detail-icon"
+          text="&#xf466;">
+        </Label>
+
+      </GridLayout>
+
+      <!-- Nombre -->
+
+      <Label
+        class="detail-name"
+        [text]="p.nombre"
+        textWrap="true">
+      </Label>
+
+      <!-- Precio -->
+
+      <Label
+        class="detail-price"
+        [text]="'L ' + p.precio.toFixed(2)">
+      </Label>
+
+      <StackLayout class="detail-divider">
+      </StackLayout>
+
+      <!-- Categoría -->
+
+      <GridLayout
+        columns="35, *"
+        class="detail-information-row">
+
+        <Label
+          col="0"
+          class="fas detail-information-icon"
+          text="&#xf02b;">
+        </Label>
+
+        <StackLayout col="1">
+
+          <Label
+            class="detail-information-label"
+            text="Categoría">
+          </Label>
+
+          <Label
+            class="detail-information-value"
+            [text]="p.categoria"
+            textWrap="true">
+          </Label>
+
+        </StackLayout>
+
+      </GridLayout>
+
+      <StackLayout class="detail-divider">
+      </StackLayout>
+
+      <!-- Existencias -->
+
+      <GridLayout
+        columns="35, *"
+        class="detail-information-row">
+
+        <Label
+          col="0"
+          class="fas detail-information-icon"
+          text="&#xf468;">
+        </Label>
+
+        <StackLayout col="1">
+
+          <Label
+            class="detail-information-label"
+            text="Existencias">
+          </Label>
+
+          <Label
+            class="detail-stock"
+            [text]="p.stock + ' unidades disponibles'"
+            textWrap="true">
+          </Label>
+
+        </StackLayout>
+
+      </GridLayout>
+
+      <StackLayout class="detail-divider">
+      </StackLayout>
+
+      <!-- Descripción -->
+
+      <GridLayout
+        columns="35, *"
+        class="detail-information-row">
+
+        <Label
+          col="0"
+          class="fas detail-information-icon"
+          text="&#xf05a;">
+        </Label>
+
+        <StackLayout col="1">
+
+          <Label
+            class="detail-information-label"
+            text="Descripción">
+          </Label>
+
+          <Label
+            class="detail-description"
+            [text]="p.descripcion"
+            textWrap="true">
+          </Label>
+
+        </StackLayout>
+
+      </GridLayout>
+
+    </StackLayout>
+
+    <!-- Producto no encontrado -->
+
+    <Label
+      *ngIf="!producto"
+      class="detail-error"
+      text="Producto no encontrado"
+      textWrap="true">
+    </Label>
+
+    <!-- Botón para regresar -->
+
+    <Button
+      class="inventory-primary-button"
+      text="Volver al listado"
+      (tap)="volver()">
+    </Button>
+
+  </StackLayout>
+
+</ScrollView>

@@ -1,0 +1,13 @@
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Splash Screen personalizado para Android 12 y posteriores -->
+    <style name="LaunchScreenTheme" parent="LaunchScreenThemeBase">
+
+        <item name="android:windowSplashScreenBackground">#183C65</item>
+
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/inventario_splash_logo</item>
+
+    </style>
+
+</resources>

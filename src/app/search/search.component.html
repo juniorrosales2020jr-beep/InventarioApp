@@ -1,13 +1,151 @@
-<ActionBar class="action-bar">
-  <NavigationButton visibility="hidden"></NavigationButton>
-  <GridLayout columns="50, *">
-    <Label class="action-bar-title" text="Search" colSpan="2"></Label>
 
-    <Label class="fas" text="&#xf0c9;" (tap)="onDrawerButtonTap()"></Label>
+<ActionBar class="action-bar">
+
+  <NavigationButton visibility="hidden">
+  </NavigationButton>
+
+  <GridLayout columns="50, *">
+
+    <Label
+      class="action-bar-title"
+      text="Buscar productos"
+      colSpan="2">
+    </Label>
+
+    <Label
+      class="fas toolbar-icon"
+      text="&#xf0c9;"
+      (tap)="onDrawerButtonTap()">
+    </Label>
+
   </GridLayout>
+
 </ActionBar>
 
-<GridLayout class="page__content">
-  <Label class="page__content-icon fas" text="&#xf002;"></Label>
-  <Label class="page__content-placeholder" text="<!-- Page content goes here -->"></Label>
+<GridLayout
+  rows="auto, auto, auto, *"
+  class="inventory-page">
+
+  <!-- Formulario de búsqueda -->
+
+  <GridLayout
+    row="0"
+    columns="*, auto, auto"
+    class="search-form">
+
+    <TextField
+      col="0"
+      class="search-input"
+      hint="Buscar producto..."
+      [(ngModel)]="textoBusqueda"
+      appLongitudMinima
+      #campoBusqueda="ngModel"
+      returnKeyType="search"
+      (returnPress)="buscarProductos(campoBusqueda)">
+    </TextField>
+
+    <Button
+      col="1"
+      class="search-button"
+      text="Buscar"
+      [isEnabled]="!campoBusqueda.invalid"
+      [opacity]="campoBusqueda.invalid ? 0.5 : 1"
+      (tap)="buscarProductos(campoBusqueda)">
+    </Button>
+
+    <Button
+      col="2"
+      class="fas clear-button"
+      text="&#xf00d;"
+      (tap)="limpiarBusqueda()">
+    </Button>
+
+  </GridLayout>
+
+  <!-- Mensaje del validador personalizado -->
+
+  <Label
+    row="1"
+    class="validation-message"
+    text="Debes ingresar al menos 3 caracteres."
+    textWrap="true"
+    [visibility]="campoBusqueda.hasError('longitudMinima')
+      ? 'visible'
+      : 'collapse'">
+  </Label>
+
+  <!-- Cantidad de resultados -->
+
+  <Label
+    row="2"
+    class="inventory-counter"
+    [text]="resultados.length === 1
+      ? '1 producto encontrado'
+      : resultados.length + ' productos encontrados'">
+  </Label>
+
+  <!-- Listado de productos -->
+
+  <ListView
+    row="3"
+    class="inventory-list"
+    separatorColor="transparent"
+    [items]="resultados"
+    (itemTap)="onItemTap($event)">
+
+    <ng-template let-producto="item">
+
+      <FlexboxLayout
+        class="product-card"
+        flexDirection="row"
+        alignItems="center">
+
+        <GridLayout
+          class="product-icon-container"
+          flexShrink="0">
+
+          <Label
+            class="fas product-icon"
+            text="&#xf466;">
+          </Label>
+
+        </GridLayout>
+
+        <StackLayout flexGrow="1" flexShrink="1">
+
+          <Label
+            class="product-name"
+            [text]="producto.nombre"
+            textWrap="true">
+          </Label>
+
+          <Label
+            class="product-category"
+            [text]="producto.categoria">
+          </Label>
+
+          <Label
+            class="product-stock"
+            [text]="'Stock: ' + producto.stock">
+          </Label>
+
+          <Label
+            class="product-price"
+            [text]="'L ' + producto.precio.toFixed(2)">
+          </Label>
+
+        </StackLayout>
+
+        <Label
+          class="fas product-arrow"
+          text="&#xf054;"
+          flexShrink="0">
+        </Label>
+
+      </FlexboxLayout>
+
+    </ng-template>
+
+  </ListView>
+
 </GridLayout>

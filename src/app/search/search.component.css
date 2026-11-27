@@ -1,0 +1,71 @@
+.barra-superior {
+    background-color: #183C65;
+    color: #FFFFFF;
+}
+
+.icono-menu {
+    font-size: 22;
+    color: #FFFFFF;
+    horizontal-align: center;
+    vertical-align: middle;
+}
+
+.titulo-barra {
+    font-size: 20;
+    font-weight: bold;
+    color: #FFFFFF;
+    vertical-align: middle;
+}
+
+.contenedor {
+    background-color: #F1F5F9;
+    padding: 15;
+}
+
+.encabezado {
+    font-size: 16;
+    color: #64748B;
+    margin-bottom: 15;
+}
+
+.tarjeta-producto {
+    background-color: #FFFFFF;
+    border-radius: 12;
+    padding: 15;
+    margin-bottom: 10;
+}
+
+.icono-producto {
+    font-size: 30;
+    color: #183C65;
+    background-color: #E8F0FE;
+    border-radius: 10;
+    width: 65;
+    height: 65;
+    text-align: center;
+    vertical-align: middle;
+    margin-right: 15;
+}
+
+.nombre-producto {
+    font-size: 19;
+    font-weight: bold;
+    color: #183C65;
+}
+
+.categoria-producto {
+    font-size: 14;
+    color: #64748B;
+}
+
+.stock-producto {
+    font-size: 14;
+    color: #15803D;
+}
+
+.precio-producto {
+    font-size: 17;
+    font-weight: bold;
+    color: #183C65;
+    margin-top: 5;
+}

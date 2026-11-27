@@ -1,13 +1,135 @@
-<ActionBar class="action-bar">
-  <NavigationButton visibility="hidden"></NavigationButton>
-  <GridLayout columns="50, *">
-    <Label class="action-bar-title" text="Browse" colSpan="2"></Label>
 
-    <Label class="fas" text="&#xf0c9;" (tap)="onDrawerButtonTap()"></Label>
+<ActionBar class="action-bar">
+
+  <NavigationButton visibility="hidden">
+  </NavigationButton>
+
+  <GridLayout columns="50, *">
+
+    <Label
+      class="action-bar-title"
+      text="Productos"
+      colSpan="2">
+    </Label>
+
+    <Label
+      class="fas toolbar-icon"
+      text="&#xf0c9;"
+      (tap)="onDrawerButtonTap()">
+    </Label>
+
   </GridLayout>
+
 </ActionBar>
 
-<GridLayout class="page__content">
-  <Label class="page__content-icon far" text="&#xf1ea;"></Label>
-  <Label class="page__content-placeholder" text="<!-- Page content goes here -->"></Label>
+<GridLayout
+  rows="auto, auto, *"
+  class="inventory-page">
+
+  <!-- Instrucciones de actualización -->
+
+  <GridLayout
+    row="0"
+    columns="25, *"
+    class="inventory-instructions">
+
+    <Label
+      col="0"
+      class="fas instruction-icon"
+      text="&#xf021;">
+    </Label>
+
+    <Label
+      col="1"
+      class="instruction-text"
+      text="Desliza hacia abajo para actualizar"
+      textWrap="true">
+    </Label>
+
+  </GridLayout>
+
+  <!-- Contador de productos -->
+
+  <Label
+    row="1"
+    class="inventory-counter"
+    [text]="productos.length === 1
+      ? '1 producto disponible'
+      : productos.length + ' productos disponibles'">
+  </Label>
+
+  <!-- Pull to Refresh -->
+
+  <PullToRefresh
+    row="2"
+    indicatorColor="#183C65"
+    (refresh)="actualizarProductos($event)">
+
+    <ListView
+      #listaProductos
+      class="inventory-list"
+      separatorColor="transparent"
+      [items]="productos"
+      (itemTap)="onItemTap($event)">
+
+      <ng-template let-producto="item">
+
+        <FlexboxLayout
+          class="product-card"
+          flexDirection="row"
+          alignItems="center">
+
+          <GridLayout
+            class="product-icon-container"
+            flexShrink="0">
+
+            <Label
+              class="fas product-icon"
+              text="&#xf466;">
+            </Label>
+
+          </GridLayout>
+
+          <StackLayout flexGrow="1" flexShrink="1">
+
+            <Label
+              class="product-name"
+              [text]="producto.nombre"
+              textWrap="true">
+            </Label>
+
+            <Label
+              class="product-category"
+              [text]="producto.categoria">
+            </Label>
+
+            <Label
+              class="product-stock"
+              [text]="'Stock: ' + producto.stock">
+            </Label>
+
+            <Label
+              class="product-price"
+              [text]="'L ' + producto.precio.toFixed(2)">
+            </Label>
+
+          </StackLayout>
+
+          <!-- Cambiar categoría -->
+
+          <Label
+            class="fas product-action"
+            text="&#xf02b;"
+            flexShrink="0"
+            (tap)="cambiarCategoria(producto)">
+          </Label>
+
+        </FlexboxLayout>
+
+      </ng-template>
+
+    </ListView>
+
+  </PullToRefresh>
+
 </GridLayout>

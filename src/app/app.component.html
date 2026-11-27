@@ -1,69 +1,232 @@
+
 <RadSideDrawer [drawerTransition]="sideDrawerTransition">
-  <GridLayout tkDrawerContent rows="auto, *" class="nt-drawer__content">
-    <StackLayout row="0" class="nt-drawer__header">
-      <Image class="nt-drawer__header-image fas t-36" src="font://&#xf2bd;"></Image>
-      <Label class="nt-drawer__header-brand" text="User Name"></Label>
-      <Label class="nt-drawer__header-footnote" text="username@mail.com"></Label>
+
+  <GridLayout
+    tkDrawerContent
+    rows="auto, *, auto"
+    class="inventario-drawer">
+
+    <!-- Encabezado del menú -->
+
+    <StackLayout
+      row="0"
+      class="inventario-drawer-header">
+
+      <GridLayout class="inventario-logo-container">
+
+        <Label
+          class="fas inventario-logo"
+          text="&#xf466;">
+        </Label>
+
+      </GridLayout>
+
+      <Label
+        class="inventario-brand"
+        text="InventarioApp">
+      </Label>
+
+      <Label
+        class="inventario-description"
+        text="Sistema de gestión de inventario"
+        textWrap="true">
+      </Label>
+
     </StackLayout>
 
-    <ScrollView row="1" class="nt-drawer__body">
+    <!-- Opciones del menú -->
+
+    <ScrollView
+      row="1"
+      class="inventario-drawer-body">
+
       <StackLayout>
-        <GridLayout
-          columns="auto, *"
-          class="nt-drawer__list-item"
-          [class.-selected]="isComponentSelected('/home')"
-          (tap)="onNavItemTap('/home')"
-        >
-          <Label col="0" text="&#xf015;" class="nt-icon fas"></Label>
-          <Label col="1" text="Home" class="p-r-10"></Label>
-        </GridLayout>
+
+        <Label
+          class="inventario-section-title"
+          text="MENÚ PRINCIPAL">
+        </Label>
+
+        <!-- Inicio -->
 
         <GridLayout
-          columns="auto, *"
-          class="nt-drawer__list-item"
-          [class.-selected]="isComponentSelected('/browse')"
-          (tap)="onNavItemTap('/browse')"
-        >
-          <Label col="0" text="&#xf1ea;" class="nt-icon far"></Label>
-          <Label col="1" text="Browse" class="p-r-10"></Label>
+          columns="36, *, 5"
+          class="inventario-menu-item"
+          [class.menu-selected]="isComponentSelected('/home')"
+          (tap)="onNavItemTap('/home')">
+
+          <Label
+            col="0"
+            text="&#xf015;"
+            class="fas inventario-menu-icon">
+          </Label>
+
+          <Label
+            col="1"
+            text="Inicio"
+            class="inventario-menu-label">
+          </Label>
+
+          <StackLayout
+            col="2"
+            class="inventario-selection-indicator">
+          </StackLayout>
+
         </GridLayout>
+
+        <!-- Productos -->
 
         <GridLayout
-          columns="auto, *"
-          class="nt-drawer__list-item"
-          [class.-selected]="isComponentSelected('/search')"
-          (tap)="onNavItemTap('/search')"
-        >
-          <Label col="0" text="&#xf002;" class="nt-icon fas"></Label>
-          <Label col="1" text="Search" class="p-r-10"></Label>
+          columns="36, *, 5"
+          class="inventario-menu-item"
+          [class.menu-selected]="isComponentSelected('/browse')"
+          (tap)="onNavItemTap('/browse')">
+
+          <Label
+            col="0"
+            text="&#xf466;"
+            class="fas inventario-menu-icon">
+          </Label>
+
+          <Label
+            col="1"
+            text="Productos"
+            class="inventario-menu-label">
+          </Label>
+
+          <StackLayout
+            col="2"
+            class="inventario-selection-indicator">
+          </StackLayout>
+
         </GridLayout>
+
+        <!-- Buscar productos -->
 
         <GridLayout
-          columns="auto, *"
-          class="nt-drawer__list-item"
-          [class.-selected]="isComponentSelected('/featured')"
-          (tap)="onNavItemTap('/featured')"
-        >
-          <Label col="0" text="&#xf005;" class="nt-icon fas"></Label>
-          <Label col="1" text="Featured" class="p-r-10"></Label>
+          columns="36, *, 5"
+          class="inventario-menu-item"
+          [class.menu-selected]="isComponentSelected('/search')"
+          (tap)="onNavItemTap('/search')">
+
+          <Label
+            col="0"
+            text="&#xf002;"
+            class="fas inventario-menu-icon">
+          </Label>
+
+          <Label
+            col="1"
+            text="Buscar productos"
+            class="inventario-menu-label">
+          </Label>
+
+          <StackLayout
+            col="2"
+            class="inventario-selection-indicator">
+          </StackLayout>
+
         </GridLayout>
 
-        <StackLayout class="hr"></StackLayout>
+        <!-- Productos destacados -->
 
         <GridLayout
-          columns="auto, *"
-          class="nt-drawer__list-item"
-          [class.-selected]="isComponentSelected('/settings')"
-          (tap)="onNavItemTap('/settings')"
-        >
-          <Label col="0" text="&#xf013;" class="nt-icon fas"></Label>
-          <Label col="1" text="Settings" class="p-r-10"></Label>
+          columns="36, *, 5"
+          class="inventario-menu-item"
+          [class.menu-selected]="isComponentSelected('/featured')"
+          (tap)="onNavItemTap('/featured')">
+
+          <Label
+            col="0"
+            text="&#xf005;"
+            class="fas inventario-menu-icon">
+          </Label>
+
+          <Label
+            col="1"
+            text="Destacados"
+            class="inventario-menu-label">
+          </Label>
+
+          <StackLayout
+            col="2"
+            class="inventario-selection-indicator">
+          </StackLayout>
+
         </GridLayout>
+
+        <!-- Separador -->
+
+        <StackLayout class="inventario-divider">
+        </StackLayout>
+
+        <Label
+          class="inventario-section-title"
+          text="SISTEMA">
+        </Label>
+
+        <!-- Configuración -->
+
+        <GridLayout
+          columns="36, *, 5"
+          class="inventario-menu-item"
+          [class.menu-selected]="isComponentSelected('/settings')"
+          (tap)="onNavItemTap('/settings')">
+
+          <Label
+            col="0"
+            text="&#xf013;"
+            class="fas inventario-menu-icon">
+          </Label>
+
+          <Label
+            col="1"
+            text="Configuración"
+            class="inventario-menu-label">
+          </Label>
+
+          <StackLayout
+            col="2"
+            class="inventario-selection-indicator">
+          </StackLayout>
+
+        </GridLayout>
+
       </StackLayout>
+
     </ScrollView>
+
+    <!-- Pie del menú -->
+
+    <StackLayout
+      row="2"
+      class="inventario-drawer-footer">
+
+      <Label
+        class="inventario-footer-brand"
+        text="InventarioApp">
+      </Label>
+
+      <Label
+        class="inventario-footer-version"
+        text="Versión 1.0.0">
+      </Label>
+
+      <Label
+        class="inventario-footer-technology"
+        text="NativeScript + Angular">
+      </Label>
+
+    </StackLayout>
+
   </GridLayout>
+
+  <!-- Contenido principal de la aplicación -->
 
   <GridLayout tkMainContent>
+
     <page-router-outlet></page-router-outlet>
+
   </GridLayout>
+
 </RadSideDrawer>

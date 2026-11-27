@@ -1,0 +1,192 @@
+
+/* Barra superior */
+
+.action-bar {
+    background-color: #183C65;
+    color: #FFFFFF;
+}
+
+.action-bar-title {
+    color: #FFFFFF;
+    font-size: 20;
+    font-weight: bold;
+}
+
+/* Fondo general */
+
+.settings-background {
+    background-color: #F1F5F9;
+}
+
+.settings-container {
+    padding: 16;
+}
+
+/* Tarjeta de identidad */
+
+.profile-card {
+    background-color: #FFFFFF;
+    border-radius: 14;
+    border-width: 1;
+    border-color: #E2E8F0;
+    padding: 24;
+    margin-bottom: 22;
+}
+
+/* Logotipo */
+
+.app-logo-container {
+    background-color: #183C65;
+    width: 80;
+    height: 80;
+    border-radius: 18;
+    horizontal-align: center;
+    margin-bottom: 15;
+}
+
+.app-logo {
+    font-size: 42;
+    color: #FFFFFF;
+    horizontal-align: center;
+    vertical-align: center;
+    text-align: center;
+}
+
+/* Nombre y descripción */
+
+.app-name {
+    font-size: 26;
+    font-weight: bold;
+    color: #183C65;
+    text-align: center;
+    margin-bottom: 6;
+}
+
+.app-description {
+    font-size: 14;
+    color: #64748B;
+    text-align: center;
+    margin-bottom: 15;
+}
+
+.version-label {
+    background-color: #E0ECFA;
+    color: #183C65;
+    font-size: 12;
+    font-weight: bold;
+    border-radius: 20;
+    padding: 8 16;
+    horizontal-align: center;
+}
+
+/* Títulos de sección */
+
+.section-title {
+    font-size: 18;
+    font-weight: bold;
+    color: #183C65;
+    margin-bottom: 12;
+}
+
+/* Tarjeta de información */
+
+.information-card {
+    background-color: #FFFFFF;
+    border-radius: 12;
+    border-width: 1;
+    border-color: #E2E8F0;
+    padding: 16;
+    margin-bottom: 22;
+}
+
+.information-row {
+    padding-top: 12;
+    padding-bottom: 12;
+    min-height: 65;
+}
+
+.information-icon {
+    font-size: 23;
+    color: #183C65;
+    vertical-align: center;
+}
+
+.information-label {
+    font-size: 12;
+    color: #64748B;
+    margin-bottom: 4;
+}
+
+.information-value {
+    font-size: 16;
+    font-weight: bold;
+    color: #183C65;
+}
+
+/* Separadores */
+
+.settings-divider {
+    height: 1;
+    background-color: #E2E8F0;
+}
+
+/* Acerca de la aplicación */
+
+.about-card {
+    background-color: #FFFFFF;
+    border-radius: 12;
+    border-width: 1;
+    border-color: #E2E8F0;
+    padding: 18;
+    margin-bottom: 18;
+}
+
+.about-description {
+    font-size: 15;
+    color: #475569;
+    margin-bottom: 12;
+}
+
+.about-note {
+    font-size: 13;
+    color: #64748B;
+}
+
+/* Botón informativo */
+
+.about-button {
+    background-color: #183C65;
+    border-radius: 10;
+    padding: 16;
+    min-height: 55;
+    margin-bottom: 22;
+}
+
+.about-button-icon {
+    color: #FFFFFF;
+    font-size: 20;
+    vertical-align: center;
+}
+
+.about-button-text {
+    color: #FFFFFF;
+    font-size: 15;
+    font-weight: bold;
+    vertical-align: center;
+}
+
+/* Pie de página */
+
+.settings-footer {
+    font-size: 12;
+    color: #64748B;
+    text-align: center;
+    margin-bottom: 5;
+}
+
+.settings-footer-year {
+    font-size: 12;
+    color: #64748B;
+    text-align: center;
+    margin-bottom: 15;
+}

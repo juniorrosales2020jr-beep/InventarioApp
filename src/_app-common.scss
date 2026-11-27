@@ -1,10 +1,25 @@
+
 @import '@nativescript/theme/core';
 @import '@nativescript/theme/default';
 
-// Place any CSS rules you want to apply on both iOS and Android here.
-// This is where the vast majority of your CSS code goes.
+// ==========================================
+// PALETA DE COLORES
+// ==========================================
 
-// Font icon class
+$inventario-primary: #183C65;
+$inventario-white: #FFFFFF;
+$inventario-background: #F1F5F9;
+$inventario-muted: #64748B;
+$inventario-border: #E2E8F0;
+$inventario-selected: #E0ECFA;
+$inventario-success: #15803D;
+$inventario-warning: #F59E0B;
+$inventario-danger: #DC2626;
+
+// ==========================================
+// FUENTES FONT AWESOME
+// ==========================================
+
 .fab {
   font-family: 'Font Awesome 5 Brands', 'fa-brands-400';
   font-weight: 400;
@@ -20,8 +35,12 @@
   font-weight: 400;
 }
 
-// Common page class
+// ==========================================
+// ESTILOS ORIGINALES
+// ==========================================
+
 .page__content {
+
   &-icon,
   &-placeholder {
     color: const(grey);
@@ -35,9 +54,475 @@
     vertical-align: top;
     margin-top: 20%;
   }
+
 }
 
-// Drawer navigation custom styles
 .nt-drawer__header-image {
   color: const(grey);
+}
+
+// ==========================================
+// BARRAS SUPERIORES
+// ==========================================
+
+ActionBar,
+.action-bar {
+  background-color: $inventario-primary;
+  color: $inventario-white;
+}
+
+.action-bar-title {
+  color: $inventario-white;
+  font-size: 20;
+  font-weight: bold;
+}
+
+.toolbar-icon {
+  color: $inventario-white;
+  font-size: 22;
+  vertical-align: center;
+}
+
+// ==========================================
+// MENÚ LATERAL
+// ==========================================
+
+.inventario-drawer {
+  background-color: $inventario-white;
+}
+
+.inventario-drawer-header {
+  background-color: $inventario-primary;
+  padding: 24;
+  padding-top: 36;
+  padding-bottom: 25;
+}
+
+.inventario-logo-container {
+  background-color: $inventario-white;
+  width: 64;
+  height: 64;
+  border-radius: 15;
+  horizontal-align: left;
+  margin-bottom: 16;
+}
+
+.inventario-logo {
+  color: $inventario-primary;
+  font-size: 34;
+  horizontal-align: center;
+  vertical-align: center;
+  text-align: center;
+}
+
+.inventario-brand {
+  color: $inventario-white;
+  font-size: 24;
+  font-weight: bold;
+  margin-bottom: 5;
+}
+
+.inventario-description {
+  color: #CBD5E1;
+  font-size: 13;
+}
+
+.inventario-drawer-body {
+  background-color: $inventario-white;
+  padding: 12;
+}
+
+.inventario-section-title {
+  color: $inventario-muted;
+  font-size: 11;
+  font-weight: bold;
+  letter-spacing: 0.05;
+  margin-top: 12;
+  margin-bottom: 12;
+  margin-left: 12;
+}
+
+.inventario-menu-item {
+  background-color: $inventario-white;
+  border-radius: 8;
+  padding: 12;
+  margin-bottom: 5;
+  min-height: 52;
+}
+
+.inventario-menu-icon {
+  color: $inventario-muted;
+  font-size: 19;
+  vertical-align: center;
+}
+
+.inventario-menu-label {
+  color: $inventario-primary;
+  font-size: 15;
+  vertical-align: center;
+}
+
+.inventario-selection-indicator {
+  background-color: transparent;
+  width: 4;
+  height: 25;
+  border-radius: 3;
+  vertical-align: center;
+}
+
+.inventario-menu-item.menu-selected {
+  background-color: $inventario-selected;
+
+  .inventario-menu-icon {
+    color: $inventario-primary;
+  }
+
+  .inventario-menu-label {
+    color: $inventario-primary;
+    font-weight: bold;
+  }
+
+  .inventario-selection-indicator {
+    background-color: $inventario-primary;
+  }
+}
+
+.inventario-divider {
+  background-color: $inventario-border;
+  height: 1;
+  margin-top: 16;
+  margin-bottom: 12;
+  margin-left: 10;
+  margin-right: 10;
+}
+
+.inventario-drawer-footer {
+  background-color: $inventario-background;
+  border-top-width: 1;
+  border-top-color: $inventario-border;
+  padding: 18;
+}
+
+.inventario-footer-brand {
+  color: $inventario-primary;
+  font-size: 15;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 4;
+}
+
+.inventario-footer-version {
+  color: $inventario-muted;
+  font-size: 12;
+  text-align: center;
+  margin-bottom: 4;
+}
+
+.inventario-footer-technology {
+  color: $inventario-muted;
+  font-size: 11;
+  text-align: center;
+}
+
+// ==========================================
+// PÁGINAS DEL INVENTARIO
+// ==========================================
+
+.inventory-page {
+  background-color: $inventario-background;
+  padding: 15;
+}
+
+.inventory-instructions {
+  background-color: $inventario-selected;
+  border-radius: 8;
+  padding: 12;
+  margin-bottom: 15;
+}
+
+.instruction-icon {
+  color: $inventario-primary;
+  font-size: 16;
+  vertical-align: center;
+}
+
+.instruction-text {
+  color: $inventario-primary;
+  font-size: 13;
+  vertical-align: center;
+}
+
+.inventory-counter {
+  color: $inventario-primary;
+  font-size: 17;
+  font-weight: bold;
+  margin-bottom: 12;
+}
+
+.inventory-list {
+  background-color: transparent;
+}
+
+// ==========================================
+// TARJETAS DE PRODUCTOS
+// ==========================================
+
+.product-card {
+  background-color: $inventario-white;
+  border-width: 1;
+  border-color: $inventario-border;
+  border-radius: 12;
+  padding: 12;
+  margin-bottom: 10;
+  min-height: 110;
+}
+
+.product-icon-container {
+  background-color: $inventario-selected;
+  width: 52;
+  height: 52;
+  border-radius: 10;
+  margin-right: 12;
+}
+
+.product-icon {
+  color: $inventario-primary;
+  font-size: 27;
+  horizontal-align: center;
+  vertical-align: center;
+}
+
+.product-name {
+  color: $inventario-primary;
+  font-size: 18;
+  font-weight: bold;
+  margin-bottom: 3;
+}
+
+.product-category {
+  color: $inventario-muted;
+  font-size: 13;
+  margin-bottom: 3;
+}
+
+.product-stock {
+  color: $inventario-success;
+  font-size: 13;
+  margin-bottom: 4;
+}
+
+.product-price {
+  color: $inventario-primary;
+  font-size: 17;
+  font-weight: bold;
+}
+
+.product-action {
+  color: $inventario-primary;
+  background-color: $inventario-selected;
+  font-size: 20;
+  border-radius: 8;
+  padding: 12;
+  margin-left: 5;
+}
+
+.product-arrow {
+  color: #94A3B8;
+  font-size: 14;
+  padding: 8;
+}
+
+// ==========================================
+// FORMULARIO DE BÚSQUEDA
+// ==========================================
+
+.search-form {
+  background-color: $inventario-white;
+  border-width: 1;
+  border-color: $inventario-border;
+  border-radius: 10;
+  padding: 6;
+  margin-bottom: 12;
+}
+
+.search-input {
+  color: $inventario-primary;
+  placeholder-color: $inventario-muted;
+  font-size: 14;
+  padding: 10;
+  margin-right: 4;
+  vertical-align: center;
+}
+
+.search-button {
+  background-color: $inventario-primary;
+  color: $inventario-white;
+  font-size: 13;
+  font-weight: bold;
+  border-radius: 8;
+  padding: 10;
+  margin: 2;
+  min-height: 42;
+}
+
+.clear-button {
+  background-color: $inventario-selected;
+  color: $inventario-primary;
+  font-size: 17;
+  border-radius: 8;
+  margin: 2;
+  width: 42;
+  min-height: 42;
+}
+
+.validation-message {
+  color: $inventario-danger;
+  font-size: 13;
+  margin-bottom: 12;
+  padding-left: 5;
+}
+
+// ==========================================
+// PRODUCTOS DESTACADOS
+// ==========================================
+
+.featured-counter {
+  background-color: $inventario-white;
+  border-width: 1;
+  border-color: $inventario-border;
+  border-radius: 10;
+  padding: 15;
+  margin-bottom: 15;
+}
+
+.featured-counter-icon {
+  color: $inventario-warning;
+  font-size: 25;
+  vertical-align: center;
+}
+
+.featured-counter-text {
+  color: $inventario-primary;
+  font-size: 17;
+  font-weight: bold;
+  vertical-align: center;
+}
+
+.featured-star {
+  font-size: 28;
+  padding: 12;
+  margin-left: 5;
+}
+
+// ==========================================
+// DETALLE DEL PRODUCTO
+// ==========================================
+
+.detail-background {
+  background-color: $inventario-background;
+}
+
+.detail-container {
+  padding: 16;
+}
+
+.detail-card {
+  background-color: $inventario-white;
+  border-width: 1;
+  border-color: $inventario-border;
+  border-radius: 14;
+  padding: 22;
+  margin-bottom: 20;
+}
+
+.detail-icon-container {
+  background-color: $inventario-selected;
+  width: 100;
+  height: 100;
+  border-radius: 20;
+  horizontal-align: center;
+  margin-bottom: 20;
+}
+
+.detail-icon {
+  color: $inventario-primary;
+  font-size: 55;
+  horizontal-align: center;
+  vertical-align: center;
+}
+
+.detail-name {
+  color: $inventario-primary;
+  font-size: 28;
+  font-weight: bold;
+  margin-bottom: 8;
+}
+
+.detail-price {
+  color: $inventario-success;
+  font-size: 26;
+  font-weight: bold;
+  margin-bottom: 18;
+}
+
+.detail-divider {
+  background-color: $inventario-border;
+  height: 1;
+}
+
+.detail-information-row {
+  padding-top: 18;
+  padding-bottom: 18;
+}
+
+.detail-information-icon {
+  color: $inventario-primary;
+  font-size: 19;
+  vertical-align: top;
+  margin-top: 4;
+}
+
+.detail-information-label {
+  color: $inventario-muted;
+  font-size: 13;
+  margin-bottom: 6;
+}
+
+.detail-information-value {
+  color: $inventario-primary;
+  font-size: 17;
+  font-weight: bold;
+}
+
+.detail-stock {
+  color: $inventario-success;
+  font-size: 16;
+  font-weight: bold;
+}
+
+.detail-description {
+  color: #475569;
+  font-size: 16;
+}
+
+.detail-error {
+  color: $inventario-danger;
+  font-size: 20;
+  text-align: center;
+  margin: 20;
+}
+
+// ==========================================
+// BOTONES GENERALES
+// ==========================================
+
+.inventory-primary-button {
+  background-color: $inventario-primary;
+  color: $inventario-white;
+  border-radius: 10;
+  font-size: 16;
+  font-weight: bold;
+  min-height: 52;
+  margin-top: 5;
+  margin-bottom: 15;
 }

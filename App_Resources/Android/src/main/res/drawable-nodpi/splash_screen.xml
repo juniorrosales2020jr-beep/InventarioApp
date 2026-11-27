@@ -1,8 +1,17 @@
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android" android:gravity="fill">
+
+<layer-list
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Fondo personalizado -->
     <item>
-        <bitmap android:gravity="fill" android:src="@drawable/background" />
+        <shape android:shape="rectangle">
+            <solid android:color="#183C65" />
+        </shape>
     </item>
-    <item>
-        <bitmap android:gravity="center" android:src="@drawable/logo" />
-    </item>
+
+    <!-- Icono personalizado -->
+    <item
+        android:drawable="@drawable/inventario_splash_logo"
+        android:gravity="center" />
+
 </layer-list>
